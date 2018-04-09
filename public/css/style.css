@@ -1,0 +1,327 @@
+@font-face {
+    font-family: "Kohinoor Devanagari";
+    src: url("assets/fonts/Kohinoor Devanagari Medium.woff");
+}
+
+@font-face {
+    font-family: "Kohinoor Devanagari";
+    src: url("assets/fonts/Kohinoor Devanagari Bold.woff");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Kohinoor Devanagari";
+    src: url("assets/fonts/Kohinoor Devanagari Light.woff");
+    font-weight: lighter;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Amaranth:400,700');
+
+
+body {
+    background-color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Kohinoor Devanagari', sans-serif!important;
+}
+
+.amaranth {
+    font-family: 'Amaranth', sans-serif!important;
+}
+
+.navbar {
+    background-color: #ffffff;
+}
+
+.navbar-brand img {
+    width: 65%;
+}
+
+.nav-link {
+    font-size: 12px;
+    margin-left: 30px;
+}
+
+.home-image {
+    margin-left: -30px;
+    width: 90%;
+}
+
+.home-text {
+    position: absolute;
+    bottom: 0;
+    right: 60px;
+}
+
+.home-desc .media-body {
+    font-size: 15px;
+    color: #616161;
+}
+
+.home-slider {
+    background-color: #05BCDC;
+    padding: 80px;
+}
+
+.home-text-slider {
+    color: #ffffff;
+}
+
+.slick-dots li button:before {
+    background-color: #fff;
+    color: #fff;
+}
+
+.accent-2 {
+    position: absolute;
+    left: 0;
+    top: -3px;
+}
+
+.home-choose {
+    padding: 0 200px;
+}
+
+.home-choose-link {
+    text-decoration: none!important;
+}
+
+.home-choose-link:hover > .home-choose-text h4 {
+    color: red;
+}
+
+.home-choose-link img {
+    border: 3px solid #fff;
+    border-radius: 25px;
+    padding: 20px;
+}
+
+.home-choose-link:hover > img {
+    border-color:  #05BCDC;
+}
+
+.home-choose-text h4 {
+    color: #4B2C76;
+}
+
+.home-choose-text p {
+    color: #626262;
+}
+
+.home-explore {
+    padding-top: 100px;
+}
+
+.home-explore h1 {
+    color: #4B2C76;
+}
+
+.home-icons-snippet {
+    text-align: center;
+    padding: 0 10px;
+}
+
+.home-icons-snippet p {
+    margin-top: 30px;
+}
+
+.home-video-container {
+    position: relative;
+    text-align: center;
+    color: #ffffff;
+}
+
+.home-video {
+    filter: brightness(50%);
+    min-width: 100%;
+}
+
+.home-video-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.home-update {
+    background-color: #4B2C76;
+    padding: 80px;
+}
+
+.home-text-update {
+    color: #ffffff;
+}
+
+.home-updates-article {
+    color: #fff;
+}
+
+.home-updates .slick-prev, .home-updates .slick-next {
+    background-color: #fff!important;
+    border-radius: 100%;
+    padding: 5px!important;
+    margin: 0 30px;
+    z-index: 1000;
+}
+
+.home-companies {
+    padding: 100px;
+}
+
+.home-company-slick img {
+    margin-left:30px;
+}
+
+.home-company-slick .slick-prev, .home-company-slick .slick-next {
+    width: 15px;
+    margin: 20px 0;
+
+}
+
+.home-signup {
+    padding: 50px;
+    background: #05BCDC;
+    text-align: center;
+    color: #fff;
+}
+
+.home-signup h2 {
+    color: #4B2C76;
+}
+
+input {
+    border-radius: 0!important;
+}
+
+.btn {
+    border-radius: 0!important;
+}
+
+.btn-winery {
+    background-color: #EF4351;
+    color: #fff;
+    width: 180px;
+    border-radius: 0;
+}
+
+.home-signup a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer {
+    padding: 50px 150px;
+}
+
+.footer h5 {
+    color: #797979;
+}
+
+.footer a, .footer p {
+    color: #B7B7B7;
+}
+
+.footer nav a {
+    font-size: 14px;
+    color: #989898;
+    margin-left: 10px;
+}
+
+/* Maintenance Styles */
+.maintenance {
+    text-align: center;
+    padding: 150px;
+    color: #696969;
+}
+
+/* Travel Styles */
+.travels-img {
+    width: 100%;
+}
+
+/* About Styles */
+.about-img {
+    width: 100%;
+}
+
+/* Card Styles */
+.card-container {
+    padding-top: 100px;
+}
+
+.btn-winery-2 {
+    background: none;
+    color: #05BCDC;
+    border: 1px solid #BDBDBD;
+    border-radius: 0;
+}
+
+
+.news-images img {
+    width: 99%;
+    height: 100%;
+
+    /* padding: 5px; */
+}
+
+.explore-card img {
+    width: 100%;
+}
+
+.explore-card h5 {
+    color: #2D3642
+}
+
+.explore-card p {
+    color: #626262;
+}
+
+.explore-card:hover {
+    text-decoration: none;
+}
+
+
+.btn-winery-3 {
+    background-color: #4B2C76;
+    border-radius: 0;
+    color: #ffffff;
+}
+
+.btn-winery-3:hover {
+    color: #ffffff;
+}
+
+.bank-img {
+    width: 80%;
+    padding: 15px 0;
+}
+
+@media (max-width: 768px) {
+    [class*='col-']{
+        margin: 20px;
+    }
+
+    .home-text {
+        position: relative;
+        right: 0;
+        margin-top: 20px;
+    }
+
+    .home-desc {
+        margin-top: 30px;
+    }
+
+    .home-choose {
+        padding: 0;
+    }
+
+    .footer {
+        padding: 50px 0;
+    }
+
+    .bank-img {
+        width: 30%;
+        margin: 15px 0;
+    }
+}
