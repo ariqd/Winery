@@ -34,7 +34,7 @@
         @endif
         <div class="form-group">
             <label for="deskripsi">Deskripsi</label>
-            <textarea class="form-control" id="deskripsi" rows="5" name="deskripsi">@if($edit){!! $card->deskripsi !!}@endif</textarea>
+            <textarea class="form-control" id="deskripsi" rows="5" name="deskripsi">@if($edit){!! nl2br($card->deskripsi) !!}@endif</textarea>
         </div>
         <label for="harga">Iuran Tahunan</label>
         <div class="input-group mb-3">
@@ -100,155 +100,316 @@
                         <th>Profesional</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td>Fotokopi KTP/KITAS</td>
-                        <td>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" value="1" name="ktp_karyawan" class="custom-control-input"
-                                       id="ktp_karyawan" @if($edit && $card->document->ktp_karyawan) checked @endif>
-                                <label class="custom-control-label" for="ktp_karyawan"></label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" value="1" name="ktp_wirausaha" class="custom-control-input"
-                                       id="ktp_wirausaha" @if($edit && $card->document->ktp_wirausaha) checked @endif>
-                                <label class="custom-control-label" for="ktp_wirausaha"></label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" value="1" name="ktp_profesional" class="custom-control-input"
-                                       id="ktp_profesional" @if($edit && $card->document->ktp_profesional) checked @endif>
-                                <label class="custom-control-label" for="ktp_profesional"></label>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Bukti Penghasilan (Slip Gaji/SKP/SPT)</td>
-                        <td>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" value="1" name="penghasilan_karyawan" class="custom-control-input"
-                                       id="penghasilan_karyawan" @if($edit && $card->document->penghasilan_karyawan) checked @endif>
-                                <label class="custom-control-label" for="penghasilan_karyawan"></label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" value="1" name="penghasilan_wirausaha" class="custom-control-input"
-                                       id="penghasilan_wirausaha" @if($edit && $card->document->penghasilan_wirausaha) checked @endif>
-                                <label class="custom-control-label" for="penghasilan_wirausaha"></label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" value="1" name="penghasilan_profesional" class="custom-control-input"
-                                       id="penghasilan_profesional" @if($edit && $card->document->penghasilan_profesional) checked @endif>
-                                <label class="custom-control-label" for="penghasilan_profesional"></label>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Fotokopi Rekening Tabungan (2 bln terakhir)</td>
-                        <td>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" value="1" name="tabungan_karyawan" class="custom-control-input"
-                                       id="tabungan_karyawan" @if($edit && $card->document->tabungan_karyawan) checked @endif>
-                                <label class="custom-control-label" for="tabungan_karyawan"></label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" value="1" name="tabungan_wirausaha" class="custom-control-input"
-                                       id="tabungan_wirausaha" @if($edit && $card->document->tabungan_wirausaha) checked @endif>
-                                <label class="custom-control-label" for="tabungan_wirausaha"></label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" value="1" name="tabungan_profesional" class="custom-control-input"
-                                       id="tabungan_profesional" @if($edit && $card->document->tabungan_profesional) checked @endif>
-                                <label class="custom-control-label" for="tabungan_profesional"></label>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Fotokopi Surat Izin Profesi</td>
-                        <td>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" value="1" name="izin_karyawan" class="custom-control-input"
-                                       id="izin_karyawan" @if($edit && $card->document->izin_karyawan) checked @endif>
-                                <label class="custom-control-label" for="izin_karyawan"></label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" value="1" name="izin_wirausaha" class="custom-control-input"
-                                       id="izin_wirausaha" @if($edit && $card->document->izin_wirausaha) checked @endif>
-                                <label class="custom-control-label" for="izin_wirausaha"></label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" value="1" name="izin_profesional" class="custom-control-input"
-                                       id="izin_profesional" @if($edit && $card->document->izin_profesional) checked @endif>
-                                <label class="custom-control-label" for="izin_profesional"></label>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>NPWP</td>
-                        <td>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" value="1" name="npwp_karyawan" class="custom-control-input"
-                                       id="npwp_karyawan" @if($edit && $card->document->npwp_karyawan) checked @endif>
-                                <label class="custom-control-label" for="npwp_karyawan"></label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" value="1" name="npwp_wirausaha" class="custom-control-input"
-                                       id="npwp_wirausaha" @if($edit && $card->document->npwp_wirausaha) checked @endif>
-                                <label class="custom-control-label" for="npwp_wirausaha"></label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" value="1" name="npwp_profesional" class="custom-control-input"
-                                       id="npwp_profesional" @if($edit && $card->document->npwp_profesional) checked @endif>
-                                <label class="custom-control-label" for="npwp_profesional"></label>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Fotokopi Akta Pendirian/SIUP/TDP</td>
-                        <td>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" value="1" name="pendirian_karyawan" class="custom-control-input"
-                                       id="pendirian_karyawan" @if($edit && $card->document->pendirian_karyawan) checked @endif>
-                                <label class="custom-control-label" for="pendirian_karyawan"></label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" value="1" name="pendirian_wirausaha" class="custom-control-input"
-                                       id="pendirian_wirausaha" @if($edit && $card->document->pendirian_wirausaha) checked @endif>
-                                <label class="custom-control-label" for="pendirian_wirausaha"></label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" value="1" name="pendirian_profesional" class="custom-control-input"
-                                       id="pendirian_profesional" @if($edit && $card->document->pendirian_profesional) checked @endif>
-                                <label class="custom-control-label" for="pendirian_profesional"></label>
-                            </div>
-                        </td>
-                    </tr>
-                    </tbody>
+                    @if(!is_null($card->document))
+                        <tbody>
+                        <tr>
+                            <td>Fotokopi KTP/KITAS</td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="ktp_karyawan" class="custom-control-input"
+                                           id="ktp_karyawan" @if($edit && $card->document->ktp_karyawan) checked @endif>
+                                    <label class="custom-control-label" for="ktp_karyawan"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="ktp_wirausaha" class="custom-control-input"
+                                           id="ktp_wirausaha" @if($edit && $card->document->ktp_wirausaha) checked @endif>
+                                    <label class="custom-control-label" for="ktp_wirausaha"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="ktp_profesional" class="custom-control-input"
+                                           id="ktp_profesional" @if($edit && $card->document->ktp_profesional) checked @endif>
+                                    <label class="custom-control-label" for="ktp_profesional"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Bukti Penghasilan (Slip Gaji/SKP/SPT)</td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="penghasilan_karyawan" class="custom-control-input"
+                                           id="penghasilan_karyawan" @if($edit && $card->document->penghasilan_karyawan) checked @endif>
+                                    <label class="custom-control-label" for="penghasilan_karyawan"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="penghasilan_wirausaha" class="custom-control-input"
+                                           id="penghasilan_wirausaha" @if($edit && $card->document->penghasilan_wirausaha) checked @endif>
+                                    <label class="custom-control-label" for="penghasilan_wirausaha"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="penghasilan_profesional" class="custom-control-input"
+                                           id="penghasilan_profesional" @if($edit && $card->document->penghasilan_profesional) checked @endif>
+                                    <label class="custom-control-label" for="penghasilan_profesional"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Fotokopi Rekening Tabungan (2 bln terakhir)</td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="tabungan_karyawan" class="custom-control-input"
+                                           id="tabungan_karyawan" @if($edit && $card->document->tabungan_karyawan) checked @endif>
+                                    <label class="custom-control-label" for="tabungan_karyawan"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="tabungan_wirausaha" class="custom-control-input"
+                                           id="tabungan_wirausaha" @if($edit && $card->document->tabungan_wirausaha) checked @endif>
+                                    <label class="custom-control-label" for="tabungan_wirausaha"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="tabungan_profesional" class="custom-control-input"
+                                           id="tabungan_profesional" @if($edit && $card->document->tabungan_profesional) checked @endif>
+                                    <label class="custom-control-label" for="tabungan_profesional"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Fotokopi Surat Izin Profesi</td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="izin_karyawan" class="custom-control-input"
+                                           id="izin_karyawan" @if($edit && $card->document->izin_karyawan) checked @endif>
+                                    <label class="custom-control-label" for="izin_karyawan"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="izin_wirausaha" class="custom-control-input"
+                                           id="izin_wirausaha" @if($edit && $card->document->izin_wirausaha) checked @endif>
+                                    <label class="custom-control-label" for="izin_wirausaha"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="izin_profesional" class="custom-control-input"
+                                           id="izin_profesional" @if($edit && $card->document->izin_profesional) checked @endif>
+                                    <label class="custom-control-label" for="izin_profesional"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>NPWP</td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="npwp_karyawan" class="custom-control-input"
+                                           id="npwp_karyawan" @if($edit && $card->document->npwp_karyawan) checked @endif>
+                                    <label class="custom-control-label" for="npwp_karyawan"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="npwp_wirausaha" class="custom-control-input"
+                                           id="npwp_wirausaha" @if($edit && $card->document->npwp_wirausaha) checked @endif>
+                                    <label class="custom-control-label" for="npwp_wirausaha"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="npwp_profesional" class="custom-control-input"
+                                           id="npwp_profesional" @if($edit && $card->document->npwp_profesional) checked @endif>
+                                    <label class="custom-control-label" for="npwp_profesional"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Fotokopi Akta Pendirian/SIUP/TDP</td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="pendirian_karyawan" class="custom-control-input"
+                                           id="pendirian_karyawan" @if($edit && $card->document->pendirian_karyawan) checked @endif>
+                                    <label class="custom-control-label" for="pendirian_karyawan"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="pendirian_wirausaha" class="custom-control-input"
+                                           id="pendirian_wirausaha" @if($edit && $card->document->pendirian_wirausaha) checked @endif>
+                                    <label class="custom-control-label" for="pendirian_wirausaha"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="pendirian_profesional" class="custom-control-input"
+                                           id="pendirian_profesional" @if($edit && $card->document->pendirian_profesional) checked @endif>
+                                    <label class="custom-control-label" for="pendirian_profesional"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    @else
+                        <tbody>
+                        <tr>
+                            <td>Fotokopi KTP/KITAS</td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="ktp_karyawan" class="custom-control-input"
+                                           id="ktp_karyawan">
+                                    <label class="custom-control-label" for="ktp_karyawan"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="ktp_wirausaha" class="custom-control-input"
+                                           id="ktp_wirausaha">
+                                    <label class="custom-control-label" for="ktp_wirausaha"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="ktp_profesional" class="custom-control-input"
+                                           id="ktp_profesional">
+                                    <label class="custom-control-label" for="ktp_profesional"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Bukti Penghasilan (Slip Gaji/SKP/SPT)</td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="penghasilan_karyawan" class="custom-control-input"
+                                           id="penghasilan_karyawan">
+                                    <label class="custom-control-label" for="penghasilan_karyawan"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="penghasilan_wirausaha" class="custom-control-input"
+                                           id="penghasilan_wirausaha">
+                                    <label class="custom-control-label" for="penghasilan_wirausaha"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="penghasilan_profesional" class="custom-control-input"
+                                           id="penghasilan_profesional">
+                                    <label class="custom-control-label" for="penghasilan_profesional"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Fotokopi Rekening Tabungan (2 bln terakhir)</td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="tabungan_karyawan" class="custom-control-input"
+                                           id="tabungan_karyawan">
+                                    <label class="custom-control-label" for="tabungan_karyawan"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="tabungan_wirausaha" class="custom-control-input"
+                                           id="tabungan_wirausaha">
+                                    <label class="custom-control-label" for="tabungan_wirausaha"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="tabungan_profesional" class="custom-control-input"
+                                           id="tabungan_profesional">
+                                    <label class="custom-control-label" for="tabungan_profesional"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Fotokopi Surat Izin Profesi</td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="izin_karyawan" class="custom-control-input"
+                                           id="izin_karyawan">
+                                    <label class="custom-control-label" for="izin_karyawan"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="izin_wirausaha" class="custom-control-input"
+                                           id="izin_wirausaha">
+                                    <label class="custom-control-label" for="izin_wirausaha"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="izin_profesional" class="custom-control-input"
+                                           id="izin_profesional">
+                                    <label class="custom-control-label" for="izin_profesional"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>NPWP</td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="npwp_karyawan" class="custom-control-input"
+                                           id="npwp_karyawan">
+                                    <label class="custom-control-label" for="npwp_karyawan"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="npwp_wirausaha" class="custom-control-input"
+                                           id="npwp_wirausaha">
+                                    <label class="custom-control-label" for="npwp_wirausaha"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="npwp_profesional" class="custom-control-input"
+                                           id="npwp_profesional">
+                                    <label class="custom-control-label" for="npwp_profesional"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Fotokopi Akta Pendirian/SIUP/TDP</td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="pendirian_karyawan" class="custom-control-input"
+                                           id="pendirian_karyawan">
+                                    <label class="custom-control-label" for="pendirian_karyawan"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="pendirian_wirausaha" class="custom-control-input"
+                                           id="pendirian_wirausaha">
+                                    <label class="custom-control-label" for="pendirian_wirausaha"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value="1" name="pendirian_profesional" class="custom-control-input"
+                                           id="pendirian_profesional">
+                                    <label class="custom-control-label" for="pendirian_profesional"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    @endif
                 </table>
             </div>
         </div>
         <button type="submit" class="btn btn-winery-3 btn-block my-4"><i class="fa fa-check"></i> Simpan</button>
     </form>
+@endsection
+
+@section("js")
+    <script src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
+    <script src="{{ asset('js/tinymce/jquery.tinymce.min.js') }}"></script>
+    <script>tinymce.init({
+            selector:'textarea',
+            menubar:false,
+            toolbar: "sizeselect | bold italic | fontselect |  fontsizeselect",
+            fontsize_formats: "8pt 10pt 12pt 14pt 18pt 24pt 36pt"
+            // toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
+    });</script>
 @endsection

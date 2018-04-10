@@ -198,7 +198,6 @@
     </div>
     </div>
 
-
     <div class="home-video-container w-100">
         <img src="{{ asset('img/home-video.png') }}" alt="" class="img-fluid home-video w-100">
         <div class="home-video-text">
@@ -222,9 +221,9 @@
             </div>
         </div>
 
-        <div class="row home-update">
+        <div class="row home-update p-0 p-lg-5">
             <div class="col-12">
-                <div class="home-text-update text-center amaranth">
+                <div class="home-text-update text-center amaranth pr-sm-3">
                     <p>Kami adalah yang terbaik!</p>
                     <h2 style="color:#05BCDC">Dapatkan Update Berita Finansial Terkini.</h2>
                     <small>Sebagai toko finansial terpercaya, kami telah melayani lebih dari 20 juta pelanggan</small>
@@ -233,7 +232,7 @@
             <div class="col-12">
                 <div class="home-updates mt-5 mx-auto d-block">
                     <div>
-                        <div class="home-updates-article pl-3">
+                        <div class="home-updates-article pr-3 ml-lg-3">
                             <p>Seputar Finansial</p>
                             <img src="{{ asset('img/update-1.png') }}" alt="winery-article" class="img-fluid" width="350">
                             <h3 class="py-4">Sebagai toko finansial terpercaya, kami telah melayani lebih dari 20 juta pelanggan</h3>
@@ -241,7 +240,7 @@
                         </div>
                     </div>
                     <div>
-                        <div class="home-updates-article pl-3">
+                        <div class="home-updates-article pr-3 ml-lg-3">
                             <p>Kredit Updates</p>
                             <img src="{{ asset('img/update-2.png') }}" alt="winery-article" class="img-fluid" width="350">
                             <h3 class="py-4">Baca berita terbaru serta artikel tips dan strategi keuangan yang membuat Anda lebih cerdas finansial.</h3>
@@ -249,7 +248,7 @@
                         </div>
                     </div>
                     <div>
-                        <div class="home-updates-article pl-3">
+                        <div class="home-updates-article pr-3 ml-lg-3">
                             <p>Sudut Keuangan</p>
                             <img src="{{ asset('img/update-3.png') }}" alt="winery-article" class="img-fluid" width="350">
                             <h3 class="py-4">Sebagai toko finansial terpercaya, kami telah melayani lebih dari 20 juta pelanggan</h3>
@@ -257,7 +256,7 @@
                         </div>
                     </div>
                     <div>
-                        <div class="home-updates-article pl-3">
+                        <div class="home-updates-article pr-3 ml-lg-3">
                             <p>Seputar Finansial</p>
                             <img src="{{ asset('img/update-1.png') }}" alt="winery-article" class="img-fluid" width="350">
                             <h3 class="py-4">Sebagai toko finansial terpercaya, kami telah melayani lebih dari 20 juta pelanggan</h3>
@@ -265,7 +264,7 @@
                         </div>
                     </div>
                     <div>
-                        <div class="home-updates-article pl-3">
+                        <div class="home-updates-article pr-3 ml-lg-3">
                             <p>Seputar Finansial</p>
                             <img src="{{ asset('img/update-1.png') }}" alt="winery-article" class="img-fluid" width="350">
                             <h3 class="py-4">Sebagai toko finansial terpercaya, kami telah melayani lebih dari 20 juta pelanggan</h3>
@@ -345,7 +344,30 @@
                 slidesToShow: 3,
                 slidesToScroll: 3,
                 prevArrow:"<img class='a-left control-c prev slick-prev img-fluid' src='{{ asset('img/arrow-left.png') }}'>",
-                nextArrow:"<img class='a-right control-c next slick-next img-fluid' src='{{ asset('img/arrow-right.png') }}'>"
+                nextArrow:"<img class='a-right control-c next slick-next img-fluid' src='{{ asset('img/arrow-right.png') }}'>",
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: "unslick"
+                        // settings: {
+                        //     slidesToShow: 3,
+                        //     slidesToScroll: 3,
+                        //     infinite: true,
+                        //     dots: true
+                        // }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: "unslick"
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: "unslick"
+                    }
+                    // You can unslick at a given breakpoint now by adding:
+                    // settings: "unslick"
+                    // instead of a settings object
+                ]
             });
             $('.home-company-slick').slick({
                 infinite: true,

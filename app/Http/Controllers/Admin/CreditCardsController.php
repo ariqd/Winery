@@ -58,30 +58,6 @@ class CreditCardsController extends Controller
 
                 $card->gambar = $file->getClientOriginalName();
             }
-//            $document = Document::where('cards_id', $id)->get();
-            $card->document->ktp_karyawan = isset($request->ktp_karyawan) ? $request->ktp_karyawan : 0;
-            $card->document->ktp_wirausaha = isset($request->ktp_wirausaha) ? $request->ktp_wirausaha : 0;
-            $card->document->ktp_profesional = isset($request->ktp_profesional) ? $request->ktp_profesional : 0;
-
-            $card->document->penghasilan_karyawan = isset($request->penghasilan_karyawan) ? $request->penghasilan_karyawan : 0;
-            $card->document->penghasilan_wirausaha = isset($request->penghasilan_wirausaha) ? $request->penghasilan_wirausaha : 0;
-            $card->document->penghasilan_profesional = isset($request->penghasilan_profesional) ? $request->penghasilan_profesional : 0;
-
-            $card->document->tabungan_karyawan = isset($request->tabungan_karyawan) ? $request->tabungan_karyawan : 0;
-            $card->document->tabungan_wirausaha = isset($request->tabungan_wirausaha) ? $request->tabungan_wirausaha : 0;
-            $card->document->tabungan_profesional = isset($request->tabungan_profesional) ? $request->tabungan_profesional : 0;
-
-            $card->document->izin_karyawan = isset($request->izin_karyawan) ? $request->izin_karyawan : 0;
-            $card->document->izin_wirausaha =  isset($request->izin_wirausaha) ? $request->izin_wirausaha : 0;
-            $card->document->izin_profesional = isset($request->izin_profesional) ? $request->izin_profesional : 0;
-
-            $card->document->npwp_karyawan = isset($request->npwp_karyawan) ? $request->npwp_karyawan : 0;
-            $card->document->npwp_wirausaha = isset($request->npwp_wirausaha) ? $request->npwp_wirausaha : 0;
-            $card->document->npwp_profesional = isset($request->npwp_profesional) ? $request->npwp_profesional : 0;
-
-            $card->document->pendirian_karyawan = isset($request->pendirian_karyawan) ? $request->pendirian_karyawan : 0;
-            $card->document->pendirian_wirausaha = isset($request->pendirian_wirausaha) ? $request->pendirian_wirausaha : 0;
-            $card->document->pendirian_profesional = isset($request->pendirian_profesional) ? $request->pendirian_profesional : 0;
         } else {
             $card = new Card;
 
@@ -107,36 +83,38 @@ class CreditCardsController extends Controller
 
         $card->save();
 
-        if ($id == 0) {
+        if (is_null($card->document)) {
             $document = new Document;
-
             $document->cards_id = $card->id;
-            $document->ktp_karyawan = isset($request->ktp_karyawan) ? $request->ktp_karyawan : 0;
-            $document->ktp_wirausaha = isset($request->ktp_wirausaha) ? $request->ktp_wirausaha : 0;
-            $document->ktp_profesional = isset($request->ktp_profesional) ? $request->ktp_profesional : 0;
-
-            $document->penghasilan_karyawan = isset($request->penghasilan_karyawan) ? $request->penghasilan_karyawan : 0;
-            $document->penghasilan_wirausaha = isset($request->penghasilan_wirausaha) ? $request->penghasilan_wirausaha : 0;
-            $document->penghasilan_profesional = isset($request->penghasilan_profesional) ? $request->penghasilan_profesional : 0;
-
-            $document->tabungan_karyawan = isset($request->tabungan_karyawan) ? $request->tabungan_karyawan : 0;
-            $document->tabungan_wirausaha = isset($request->tabungan_wirausaha) ? $request->tabungan_wirausaha : 0;
-            $document->tabungan_profesional = isset($request->tabungan_profesional) ? $request->tabungan_profesional : 0;
-
-            $document->izin_karyawan = isset($request->izin_karyawan) ? $request->izin_karyawan : 0;
-            $document->izin_wirausaha =  isset($request->izin_wirausaha) ? $request->izin_wirausaha : 0;
-            $document->izin_profesional = isset($request->izin_profesional) ? $request->izin_profesional : 0;
-
-            $document->npwp_karyawan = isset($request->npwp_karyawan) ? $request->npwp_karyawan : 0;
-            $document->npwp_wirausaha = isset($request->npwp_wirausaha) ? $request->npwp_wirausaha : 0;
-            $document->npwp_profesional = isset($request->npwp_profesional) ? $request->npwp_profesional : 0;
-
-            $document->pendirian_karyawan = isset($request->pendirian_karyawan) ? $request->pendirian_karyawan : 0;
-            $document->pendirian_wirausaha = isset($request->pendirian_wirausaha) ? $request->pendirian_wirausaha : 0;
-            $document->pendirian_profesional = isset($request->pendirian_profesional) ? $request->pendirian_profesional : 0;
-
-            $document->save();
+        } else {
+            $document = $card->document;
         }
+
+        $document->ktp_karyawan = isset($request->ktp_karyawan) ? $request->ktp_karyawan : 0;
+        $document->ktp_wirausaha = isset($request->ktp_wirausaha) ? $request->ktp_wirausaha : 0;
+        $document->ktp_profesional = isset($request->ktp_profesional) ? $request->ktp_profesional : 0;
+
+        $document->penghasilan_karyawan = isset($request->penghasilan_karyawan) ? $request->penghasilan_karyawan : 0;
+        $document->penghasilan_wirausaha = isset($request->penghasilan_wirausaha) ? $request->penghasilan_wirausaha : 0;
+        $document->penghasilan_profesional = isset($request->penghasilan_profesional) ? $request->penghasilan_profesional : 0;
+
+        $document->tabungan_karyawan = isset($request->tabungan_karyawan) ? $request->tabungan_karyawan : 0;
+        $document->tabungan_wirausaha = isset($request->tabungan_wirausaha) ? $request->tabungan_wirausaha : 0;
+        $document->tabungan_profesional = isset($request->tabungan_profesional) ? $request->tabungan_profesional : 0;
+
+        $document->izin_karyawan = isset($request->izin_karyawan) ? $request->izin_karyawan : 0;
+        $document->izin_wirausaha =  isset($request->izin_wirausaha) ? $request->izin_wirausaha : 0;
+        $document->izin_profesional = isset($request->izin_profesional) ? $request->izin_profesional : 0;
+
+        $document->npwp_karyawan = isset($request->npwp_karyawan) ? $request->npwp_karyawan : 0;
+        $document->npwp_wirausaha = isset($request->npwp_wirausaha) ? $request->npwp_wirausaha : 0;
+        $document->npwp_profesional = isset($request->npwp_profesional) ? $request->npwp_profesional : 0;
+
+        $document->pendirian_karyawan = isset($request->pendirian_karyawan) ? $request->pendirian_karyawan : 0;
+        $document->pendirian_wirausaha = isset($request->pendirian_wirausaha) ? $request->pendirian_wirausaha : 0;
+        $document->pendirian_profesional = isset($request->pendirian_profesional) ? $request->pendirian_profesional : 0;
+
+        $document->save();
 
         return redirect('admin/cards');
     }
