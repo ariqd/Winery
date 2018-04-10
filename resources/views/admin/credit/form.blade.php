@@ -100,7 +100,7 @@
                         <th>Profesional</th>
                     </tr>
                     </thead>
-                    @if(!is_null($card->document))
+                    @if($edit && !is_null($card->document))
                         <tbody>
                         <tr>
                             <td>Fotokopi KTP/KITAS</td>
