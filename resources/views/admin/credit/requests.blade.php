@@ -24,7 +24,8 @@
                         <td>{{ $submission->card->nama }}</td>
                         <td>{{ $submission->created_at->toFormattedDateString() }}</td>
                         <td>
-                            <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#detail{{$submission->id}}"><i class="fa fa-eye"></i> Verify</button>
+                            <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#detail{{$submission->id}}"><i class="fa fa-eye"></i> Detail</button>
+                            <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#verify{{$submission->id}}"><i class="fa fa-thumbs-up"></i> Verify</button>
                             <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#approve{{$submission->id}}"><i class="fa fa-check"></i> Approve</button>
                             <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#decline{{$submission->id}}"><i class="fa fa-close"></i> Decline</button>
                         </td>
@@ -165,6 +166,31 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                                     <a href="{{ url('admin/requests/decline/'.$submission->id) }}" class="btn btn-danger"><i class="fa fa-check"></i> Decline</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="verify{{$submission->id}}" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="deleteLabel">Verifikasi Pengajuan</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    {{--<b>Verifikasi pengajuan kredit</b>--}}
+                                    <form action="#">
+                                        <div class="form-group">
+                                            <label for="source_code">Source Code</label>
+                                            <input type="text" id="source_code" name="source_code" placeholder="Source Code" class="form-control">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                    <a href="{{ url('admin/requests/verify/'.$submission->id) }}" class="btn btn-primary"><i class="fa fa-check"></i> Verify</a>
                                 </div>
                             </div>
                         </div>

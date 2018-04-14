@@ -17,7 +17,7 @@
                 <hr>
                 <p>
                     {{--{!! $card->deskripsi !!}--}}
-                    {!! nl2br($card->deskripsi) !!}
+                    {!! $card->deskripsi !!}
                 </p>
                 <hr>
                 @if($card->document)

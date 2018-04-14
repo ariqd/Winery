@@ -406,9 +406,10 @@
     <script src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
     <script src="{{ asset('js/tinymce/jquery.tinymce.min.js') }}"></script>
     <script>tinymce.init({
-            selector:'textarea',
-            menubar:false,
-            toolbar: "sizeselect | bold italic | fontselect |  fontsizeselect",
+            selector: 'textarea',
+            menubar: false,
+            plugins: "table",
+            toolbar: "sizeselect | bold italic | fontselect |  fontsizeselect | table",
             fontsize_formats: "8pt 10pt 12pt 14pt 18pt 24pt 36pt"
             // toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
     });</script>

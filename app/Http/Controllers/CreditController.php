@@ -163,7 +163,7 @@ class CreditController extends Controller
             ['id_category', 'LIKE', $request->category],
             ['id_type',     'LIKE', $request->type],
             ['id_holder',   'LIKE', $request->holder],
-        ])->orderBy('nama')->paginate(16);
+        ])->orderBy('nama')->get();
 
         if(isset($request->bank)){
             $bank = Bank::find($request->bank);

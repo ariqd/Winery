@@ -159,11 +159,10 @@ class CreditCardsController extends Controller
 
     public function search(Request $request)
     {
-        $cards = Card::where('nama', 'LIKE', '%'.$request->nama.'%')->paginate(12);
+        $cards = Card::where('nama', 'LIKE', '%'.$request->nama.'%')->get();
 
-        if (!$cards->isEmpty()){
-            foreach ($cards as $card)
-            {
+        if (!$cards->isEmpty()) {
+            foreach ($cards as $card) {
                 echo '<div class="col-lg-3 mb-3">
             <div class="card">
                 <img class="card-img-top img-fluid" src="'.asset('img/cards/'.$card->gambar).'" alt="Card image cap">
@@ -198,41 +197,12 @@ class CreditCardsController extends Controller
                 </div>
             </div>
         </div>';
-//                echo "<div class=\"col-lg-3 mb-3\">
-//            <div class=\"card\">
-//                <img class=\"card-img-top img-fluid\" src=\"'.asset('img/cards/'.$card->gambar).'\">
-//                <div class=\"card-body\">
-//                    <h5 class=\"card-title\">". $card->nama ."</h5>
-//                    <h3 class=\"card-text\">IDR ".number_format($card->harga, 0, ',', '.')."</h3>
-//                    <div class=\"d-flex justify-content-between mt-3\">
-//                        <a href=".url('kartu-kredit/detail', $card->id)." class=\"btn btn-info btn-sm\"><i class=\"fa fa-eye\"></i> Detail</a>
-//                        <a href=".url('admin/cards/edit/'.$card->id)." class=\"btn btn-winery-3 btn-sm\"><i class=\"fa fa-pencil\"></i> Edit</a>
-//                        <button class=\"btn btn-danger btn-sm\" data-toggle=\"modal\" data-target=\"#card".$card->id."\"><i class=\"fa fa-trash\"></i> Hapus</button>
-//                    </div>
-//                </div>
-//            </div>
-//            <!-- Modal -->
-//            <div class=\"modal fade\" id=\"card".$card->id."\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"deleteLabel\">
-//                <div class=\"modal-dialog\" role=\"document\">
-//                    <div class=\"modal-content\">
-//                        <div class=\"modal-header\">
-//                            <h5 class=\"modal-title\" id=\"deleteLabel\">Hapus ".$card->nama."</h5>
-//                            <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">
-//                                <span aria-hidden=\"true\">&times;</span>
-//                            </button>
-//                        </div>
-//                        <div class=\"modal-body\">
-//                            Apakah anda yakin ingin menghapus kartu kredit ".$card->nama." ?
-//                        </div>
-//                        <div class=\"modal-footer\">
-//                            <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Batal</button>
-//                            <a href=". url('admin/cards/delete/'.$card->id)." class=\"btn btn-danger\"><i class=\"fa fa-trash\"></i> Hapus</a>
-//                        </div>
-//                    </div>
-//                </div>
-//            </div>
-//        </div>";
             }
+//            $cards->withPath('');
+//            echo '<div class="w-100"></div>
+//        <div class="col-lg-12">
+//            '.$cards->links().'
+//        </div>';
         }
     }
 }

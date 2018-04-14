@@ -49,12 +49,16 @@
             </div>
         </div>
         @endforeach
-    </div>
-    <div class="row">
+        <div class="w-100"></div>
         <div class="col-lg-12">
             {{ $cards->links() }}
         </div>
     </div>
+    {{--<div class="row">--}}
+        {{--<div class="col-lg-12">--}}
+            {{--{{ $cards->links() }}--}}
+        {{--</div>--}}
+    {{--</div>--}}
 @endsection
 
 @section("js")
