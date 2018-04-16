@@ -15,18 +15,21 @@
     <div class="row" id="checkName">
         @foreach($cards as $card)
         <div class="col-lg-3 mb-3">
-            <div class="card">
+            <div class="card" style="min-height: 350px;">
                 <img class="card-img-top img-fluid" src="{{ asset('img/cards/'.$card->gambar) }}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">{{ $card->nama }}</h5>
                     <h3 class="card-text">IDR {{ number_format($card->harga, 0, ',', '.') }}</h3>
-                    <div class="d-flex justify-content-between mt-3">
+                </div>
+                <div class="card-footer bg-white">
+                    <div class="d-flex justify-content-between">
                         <a href="{{ url('kartu-kredit/detail', $card->id) }}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> Detail</a>
                         <a href="{{ url('admin/cards/edit/'.$card->id) }}" class="btn btn-winery-3 btn-sm"><i class="fa fa-pencil"></i> Edit</a>
                         <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#card{{$card->id}}"><i class="fa fa-trash"></i> Hapus</button>
                     </div>
                 </div>
             </div>
+
             <!-- Modal -->
             <div class="modal fade" id="card{{$card->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteLabel">
                 <div class="modal-dialog" role="document">
@@ -54,11 +57,6 @@
             {{ $cards->links() }}
         </div>
     </div>
-    {{--<div class="row">--}}
-        {{--<div class="col-lg-12">--}}
-            {{--{{ $cards->links() }}--}}
-        {{--</div>--}}
-    {{--</div>--}}
 @endsection
 
 @section("js")

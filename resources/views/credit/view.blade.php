@@ -58,23 +58,22 @@
         <div class="row" id="check">
             @foreach($cards as $card)
                 <div class="col-lg-3 mb-3">
-                    <div class="card">
-                        <img class="card-img-top img-fluid" src="{{ asset('img/cards/'.$card->gambar) }}" alt="Card image cap">
+                    <div class="card" style="min-height: 420px">
+                        <img class="card-img-top img-fluid" src="{{ asset('img/cards/'.$card->gambar) }}">
                         <div class="card-body">
                             <h5 class="card-title">{{ $card->nama }}</h5>
-                            <h3 class="card-text">IDR {{ number_format($card->harga, 0, ',', '.') }}</h3>
-                            <a href="{{ url('kartu-kredit/detail/'.$card->id) }}" class="btn btn-winery-2 btn-block mt-3">Lihat Detail</a>
-                            <a href="{{ url('kartu-kredit/ajukan/'.$card->id) }}" class="btn btn-winery-3 btn-block mt-3">Ajukan</a>
+                            <h4 class="card-text">IDR {{ number_format($card->harga, 0, ',', '.') }}</h4>
+                        </div>
+                        <div class="card-footer bg-white">
+                            <a href="{{ url('kartu-kredit/detail/'.$card->id) }}" class="btn btn-winery-2 btn-block">Lihat Detail</a>
+                            <a href="{{ url('kartu-kredit/ajukan/'.$card->id) }}" class="btn btn-winery-3 btn-block mt-2">Ajukan</a>
                         </div>
                     </div>
                 </div>
             @endforeach
-        </div>
-        <div class="row">
+            <div class="w-100"></div>
             <div class="col-lg-12">
-                <div class="text-center">
-                    {{ $cards->links() }}
-                </div>
+                {{ $cards->links() }}
             </div>
         </div>
     </div>

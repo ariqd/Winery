@@ -34,7 +34,7 @@
         @endif
         <div class="form-group">
             <label for="deskripsi">Deskripsi</label>
-            <textarea class="form-control" id="deskripsi" rows="5" name="deskripsi">@if($edit){!! $card->deskripsi !!}@endif</textarea>
+            <textarea class="form-control" id="deskripsi" rows="7" name="deskripsi">@if($edit){!! $card->deskripsi !!}@endif</textarea>
         </div>
         <label for="harga">Iuran Tahunan</label>
         <div class="input-group mb-3">
@@ -408,9 +408,8 @@
     <script>tinymce.init({
             selector: 'textarea',
             menubar: false,
-            plugins: "table",
-            toolbar: "sizeselect | bold italic | fontselect |  fontsizeselect | table",
+            plugins: "table, lists, advlist",
+            toolbar: "sizeselect | bold italic | fontselect |  fontsizeselect | table | numlist | bullist",
             fontsize_formats: "8pt 10pt 12pt 14pt 18pt 24pt 36pt"
-            // toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
     });</script>
 @endsection

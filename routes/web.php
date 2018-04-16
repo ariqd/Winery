@@ -70,8 +70,13 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('/admin/setting/category/{id}', 'Admin\SettingController@manage_category');
     Route::get('/admin/setting/category/delete/{id}', 'Admin\SettingController@delete_category');
 
+    // Verify
+    Route::get('/admin/requests/{id}/verify', 'Admin\VerifyController@index')->name('admin.verify');
+    Route::post('/admin/requests/{id}/verify', 'Admin\VerifyController@verify')->name('admin.verifies');
+    // End Verify
 
     //Articles
     Route::get('admin/artikel', 'Admin\AdminArticleController@index');
+    // End Articles
 });
 

@@ -25,8 +25,8 @@
                         <td>{{ $submission->created_at->toFormattedDateString() }}</td>
                         <td>
                             <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#detail{{$submission->id}}"><i class="fa fa-eye"></i> Detail</button>
-                            <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#verify{{$submission->id}}"><i class="fa fa-thumbs-up"></i> Verify</button>
-                            <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#approve{{$submission->id}}"><i class="fa fa-check"></i> Approve</button>
+                            <a class="btn btn-sm btn-primary" href="{{ route('admin.verify', $submission->id) }}"><i class="fa fa-thumbs-up"></i> Verify</a>
+                            <button disabled class="btn btn-sm btn-success disabled" data-toggle="modal" data-target="#approve{{$submission->id}}"><i class="fa fa-check"></i> Approve</button>
                             <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#decline{{$submission->id}}"><i class="fa fa-close"></i> Decline</button>
                         </td>
                     </tr>
