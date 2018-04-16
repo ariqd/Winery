@@ -34,7 +34,7 @@
         @endif
         <div class="form-group">
             <label for="deskripsi">Deskripsi</label>
-            <textarea class="form-control" id="deskripsi" rows="5" name="deskripsi">@if($edit){!! nl2br($card->deskripsi) !!}@endif</textarea>
+            <textarea class="form-control" id="deskripsi" rows="5" name="deskripsi">@if($edit){!! $card->deskripsi !!}@endif</textarea>
         </div>
         <label for="harga">Iuran Tahunan</label>
         <div class="input-group mb-3">
