@@ -16,7 +16,6 @@
                 <h5>Kategori {{ $card->category->nama }}</h5>
                 <hr>
                 <p>
-                    {{--{!! $card->deskripsi !!}--}}
                     {!! $card->deskripsi !!}
                 </p>
                 <hr>
