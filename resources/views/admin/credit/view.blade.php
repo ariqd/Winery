@@ -15,7 +15,7 @@
     <div class="row" id="checkName">
         @foreach($cards as $card)
         <div class="col-lg-3 mb-3">
-            <div class="card" style="min-height: 350px;">
+            <div class="card" style="min-height: 380px;">
                 <img class="card-img-top img-fluid" src="{{ asset('img/cards/'.$card->gambar) }}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">{{ $card->nama }}</h5>
@@ -29,7 +29,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Modal -->
             <div class="modal fade" id="card{{$card->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteLabel">
                 <div class="modal-dialog" role="document">
