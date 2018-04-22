@@ -8,7 +8,7 @@
         <a href="{{ url('admin/requests') }}" class="btn btn-secondary"><i class="fa fa-arrow-left"></i> Semua Pengajuan</a>
     </div>
     <form action="{{ route('admin.verifies', $submission->id) }}" method="post">
-
+        {{ csrf_field() }}
         <div class="form-group row">
             <label for="nama" class="col-lg-2">Nama Lengkap (Sesuai KTP / Paspor)</label>
             <div class="col-lg-8">
@@ -17,10 +17,10 @@
         </div>
 
         <div class="form-group row">
-            <label for="namakartu" class="col-lg-2">Nama Pada Kartu (Sesuai KTP / Paspor)</label>
+            <label for="nama_di_kartu" class="col-lg-2">Nama Pada Kartu (Sesuai KTP / Paspor)</label>
             <div class="col-lg-8">
-                <input type="text" class="form-control" id="namakartu" name="namakartu" placeholder="Nama pada kartu" required>
-                <small id="emailHelp" class="form-text text-muted">Maksimal 19 digit.</small>
+                <input type="text" class="form-control" id="nama_di_kartu" name="nama_di_kartu" placeholder="Nama pada kartu" required>
+                <small id="nama_di_kartu" class="form-text text-muted">Maksimal 19 digit.</small>
             </div>
         </div>
 
@@ -69,22 +69,22 @@
         </div>
 
         <div class="form-group row">
-            <label for="tinggal" class="col-lg-2">Status tempat tinggal saat ini</label>
+            <label for="status_tinggal" class="col-lg-2">Status tempat tinggal saat ini</label>
             <div class="col-lg-8">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="tinggal" id="sendiri" value="Milik Sendiri">
+                    <input class="form-check-input" type="radio" name="status_tinggal" id="sendiri" value="Milik Sendiri">
                     <label class="form-check-label" for="sendiri">Milik Sendiri</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="tinggal" id="keluarga" value="Milik Keluarga">
+                    <input class="form-check-input" type="radio" name="status_tinggal" id="keluarga" value="Milik Keluarga">
                     <label class="form-check-label" for="keluarga">Milik Keluarga</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="tinggal" id="perusahaan" value="Milik Perusahaan">
+                    <input class="form-check-input" type="radio" name="status_tinggal" id="perusahaan" value="Milik Perusahaan">
                     <label class="form-check-label" for="perusahaan">Milik Perusahaan</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="tinggal" id="lainnya" value="Lainnya">
+                    <input class="form-check-input" type="radio" name="status_tinggal" id="lainnya" value="Lainnya">
                     <label class="form-check-label" for="lainnya">Lainnya</label>
                 </div>
             </div>
@@ -148,30 +148,30 @@
             <label for="dikirim_dari" class="col-lg-2">Kartu dikirim dari</label>
             <div class="col-lg-8">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="kartu_dari" id="rumah" value="Rumah">
+                    <input class="form-check-input" type="radio" name="dikirim_dari" id="rumah" value="Rumah">
                     <label class="form-check-label" for="rumah">Rumah</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="kartu_dari" id="kantor" value="Kantor">
+                    <input class="form-check-input" type="radio" name="dikirim_dari" id="kantor" value="Kantor">
                     <label class="form-check-label" for="kantor">Kantor</label>
                 </div>
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="dikirim_dari" class="col-lg-2">Tagihan dikirim ke</label>
+            <label for="tagihan_ke" class="col-lg-2">Tagihan dikirim ke</label>
             <div class="col-lg-8">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="tagihan_ke" id="email" value="E-Mail">
-                    <label class="form-check-label" for="email">E-Mail</label>
+                    <input class="form-check-input" type="radio" name="tagihan_ke" id="email_tagihan" value="E-Mail">
+                    <label class="form-check-label" for="email_tagihan">E-Mail</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="tagihan_ke" id="rumah" value="Rumah">
-                    <label class="form-check-label" for="rumah">Rumah</label>
+                    <input class="form-check-input" type="radio" name="tagihan_ke" id="rumah_tagihan" value="Rumah">
+                    <label class="form-check-label" for="rumah_tagihan">Rumah</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="tagihan_ke" id="kantor" value="Kantor">
-                    <label class="form-check-label" for="kantor">Kantor</label>
+                    <input class="form-check-input" type="radio" name="tagihan_ke" id="kantor_tagihan" value="Kantor">
+                    <label class="form-check-label" for="kantor_tagihan">Kantor</label>
                 </div>
             </div>
         </div>
@@ -310,8 +310,8 @@
                     <label class="form-check-label" for="sepupu">Sepupu</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="hubungan" id="lainnya" value="Lainnya">
-                    <label class="form-check-label" for="lainnya">Lainnya</label>
+                    <input class="form-check-input" type="radio" name="hubungan" id="lainnya_hubungan" value="Lainnya">
+                    <label class="form-check-label" for="lainnya_hubungan">Lainnya</label>
                 </div>
             </div>
         </div>
@@ -418,8 +418,8 @@
                     <label class="form-check-label" for="liburan">Liburan</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="peruntukan" id="lainnya" value="Lainnya">
-                    <label class="form-check-label" for="lainnya">Lainnya</label>
+                    <input class="form-check-input" type="radio" name="peruntukan" id="lainnya_peruntukan" value="Lainnya">
+                    <label class="form-check-label" for="lainnya_peruntukan">Lainnya</label>
                 </div>
             </div>
         </div>
