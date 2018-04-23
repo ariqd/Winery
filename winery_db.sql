@@ -216,7 +216,7 @@ CREATE TABLE `submissions` (
 
 /*Data for the table `submissions` */
 
-insert  into `submissions`(`id`,`nama`,`email`,`alamat`,`notelp`,`tinggal`,`tgl_lahir`,`penghasilan`,`pekerjaan`,`owned`,`approved`,`id_card`,`created_at`,`updated_at`) values (2,'Ariq Daffa','ariqdaffaathallah@gmail.com','Jl. Raya','089898787676','Serang','1998-05-04','3000000-3999999','Ibu Rumah Tangga','tidak ada',1,19,'2018-04-07 14:47:07','2018-04-08 03:36:35'),(3,'Joni','joni@mail.com','Jl. Raya','089898787676','Surabaya','1983-09-17','8000000-9999999','Pegawai Swasta','AEON,BCA',1,23,'2018-04-08 03:36:22','2018-04-08 03:36:56'),(4,'John Doe','johndoe@mail.com','Jl. Raya','082837474744','Bogor','1984-04-03','4000000-4999999','Pegawai Negeri','AEON,BCA',1,23,'2018-04-11 14:20:18','2018-04-22 10:01:31');
+insert  into `submissions`(`id`,`nama`,`email`,`alamat`,`notelp`,`tinggal`,`tgl_lahir`,`penghasilan`,`pekerjaan`,`owned`,`approved`,`id_card`,`created_at`,`updated_at`) values (2,'Ariq Daffa','ariqdaffaathallah@gmail.com','Jl. Raya','089898787676','Serang','1998-05-04','3000000-3999999','Ibu Rumah Tangga','tidak ada',1,19,'2018-04-07 14:47:07','2018-04-08 03:36:35'),(3,'Joni','joni@mail.com','Jl. Raya','089898787676','Surabaya','1983-09-17','8000000-9999999','Pegawai Swasta','AEON,BCA',1,23,'2018-04-08 03:36:22','2018-04-08 03:36:56'),(4,'John Doe','johndoe@mail.com','Jl. Raya','082837474744','Bogor','1984-04-03','4000000-4999999','Pegawai Negeri','AEON,BCA',1,23,'2018-04-11 14:20:18','2018-04-23 08:53:23');
 
 /*Table structure for table `types` */
 
@@ -254,7 +254,7 @@ CREATE TABLE `users` (
 
 /*Data for the table `users` */
 
-insert  into `users`(`id`,`name`,`username`,`email`,`password`,`status`,`remember_token`,`created_at`,`updated_at`) values (1,'Winery Admin','winery_admin','winery@mail.com','$2b$10$C2Uqw59Kom9FYTho9jGGI./71s.JoMZkZmZPCa3H4wF15d7zlgCz.','1','3BWbWO819cteou9M0h8KYaT7UssfCi2wXHcijJUld1dutLMr3xZ36grj0UtK',NULL,NULL);
+insert  into `users`(`id`,`name`,`username`,`email`,`password`,`status`,`remember_token`,`created_at`,`updated_at`) values (1,'Winery Admin','winery_admin','winery@mail.com','$2b$10$C2Uqw59Kom9FYTho9jGGI./71s.JoMZkZmZPCa3H4wF15d7zlgCz.','1','S8RgDa4kUmOKFmzLGl2tpl1t6JDZ8yoeXt8sUASvpMb72ujvrUaLPOK7M7Pf',NULL,NULL);
 
 /*Table structure for table `verifications` */
 
@@ -262,9 +262,12 @@ DROP TABLE IF EXISTS `verifications`;
 
 CREATE TABLE `verifications` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `submission_id` int(11) NOT NULL,
   `nama` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nama_di_kartu` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ktp` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tgl_lahir` date NOT NULL,
+  `tempat_lahir` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `kewarganegaraan` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pendidikan` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status_tinggal` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -306,11 +309,11 @@ CREATE TABLE `verifications` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `verifications` */
 
-insert  into `verifications`(`id`,`nama`,`nama_di_kartu`,`ktp`,`kewarganegaraan`,`pendidikan`,`status_tinggal`,`alamat`,`kota`,`telp_rumah`,`telp_hp`,`email`,`ibu`,`npwp`,`dikirim_dari`,`tagihan_ke`,`pekerjaan`,`nama_perusahaan`,`bidang`,`alamat_kantor`,`kota_kantor`,`kode_pos_kantor`,`telp_kantor`,`extension`,`jabatan`,`bagian`,`bekerja_sejak`,`penghasilan`,`nama_keluarga`,`hubungan`,`alamat_keluarga`,`kota_keluarga`,`kode_pos_keluarga`,`telp_rumah_keluarga`,`telp_hp_keluarga`,`jml_pinjaman`,`jangka`,`peruntukan`,`bank_loan`,`atas_nama`,`norek_loan`,`cabang_loan`,`created_at`,`updated_at`) values (1,'John Doe','asd','asd','asd','SD','Milik Sendiri','Jl. Raya','Bogor','12','12','johndoe@mail.com','asd','asd','Rumah','E-Mail','Pegawai Negeri','asd','asd','asd','asd','asd','asd','asd','asd','asd','asd','4000000-4999999','asd','Saudara Kandung','asd','asd','asd','asd','asd','asd','12','Pendidikan','asd','asd','asd','asd','2018-04-22 10:01:31','2018-04-22 10:01:31');
+insert  into `verifications`(`id`,`submission_id`,`nama`,`nama_di_kartu`,`ktp`,`tgl_lahir`,`tempat_lahir`,`kewarganegaraan`,`pendidikan`,`status_tinggal`,`alamat`,`kota`,`telp_rumah`,`telp_hp`,`email`,`ibu`,`npwp`,`dikirim_dari`,`tagihan_ke`,`pekerjaan`,`nama_perusahaan`,`bidang`,`alamat_kantor`,`kota_kantor`,`kode_pos_kantor`,`telp_kantor`,`extension`,`jabatan`,`bagian`,`bekerja_sejak`,`penghasilan`,`nama_keluarga`,`hubungan`,`alamat_keluarga`,`kota_keluarga`,`kode_pos_keluarga`,`telp_rumah_keluarga`,`telp_hp_keluarga`,`jml_pinjaman`,`jangka`,`peruntukan`,`bank_loan`,`atas_nama`,`norek_loan`,`cabang_loan`,`created_at`,`updated_at`) values (6,4,'John Doe','asd','asd','1984-04-03','Bandung','asd','SD','Milik Sendiri','Jl. Raya','Bogor','asd','as','johndoe@mail.com','asd','asd','Rumah','E-Mail','Pegawai Negeri','asd','asd','asd','asd','asd','asd','asd','asd','asd','asd','4000000-4999999','asd','Saudara Kandung','asd','asd','asd','asd','asd','asd','12','Pendidikan','asd','asd','asd','asd','2018-04-23 08:53:23','2018-04-23 08:53:23');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
