@@ -8,7 +8,7 @@
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <table class="table" id="myTable">
+            <table class="table table-responsive" id="myTable">
                 <thead>
                 <tr>
                     <th>Nama</th>
