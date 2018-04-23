@@ -11,6 +11,7 @@ use App\Submission;
 use App\Type;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Exports\AplikasiExport;
 
 class CreditCardsController extends Controller
 {
@@ -198,11 +199,11 @@ class CreditCardsController extends Controller
             </div>
         </div>';
             }
-//            $cards->withPath('');
-//            echo '<div class="w-100"></div>
-//        <div class="col-lg-12">
-//            '.$cards->links().'
-//        </div>';
         }
+    }
+
+    public function downloadExcel($id)
+    {
+        return (new AplikasiExport($id))->download('Aplikasi ID '.$id.'.xlsx');
     }
 }

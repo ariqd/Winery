@@ -9,6 +9,7 @@
     </div>
     <form action="{{ route('admin.verifies', $submission->id) }}" method="post">
         {{ csrf_field() }}
+        <input type="hidden" value="{{ $submission->id }}" name="submission_id">
         <div class="form-group row">
             <label for="nama" class="col-lg-2">Nama Lengkap (Sesuai KTP / Paspor)</label>
             <div class="col-lg-8">
@@ -28,6 +29,21 @@
             <label for="ktp" class="col-lg-2">No. KTP / Paspor</label>
             <div class="col-lg-8">
                 <input type="text" class="form-control" id="ktp" name="ktp" placeholder="No. KTP / Paspor" required>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="fake_tgl_lahir" class="col-lg-2">Tanggal Lahir</label>
+            <div class="col-lg-8">
+                <input type="text" class="form-control" id="fake_tgl_lahir" name="fake_tgl_lahir" value="{{ \Carbon\Carbon::parse($submission->tgl_lahir)->toFormattedDateString() }}" disabled>
+                <input type="hidden" name="tgl_lahir" value="{{ $submission->tgl_lahir }}">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="tempat_lahir" class="col-lg-2">Tempat Lahir</label>
+            <div class="col-lg-8">
+                <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Tempat Lahir" required>
             </div>
         </div>
 

@@ -15,6 +15,11 @@ class Submission extends Model
         return $this->belongsTo(Card::class, 'id_card');
     }
 
+    public function verification()
+    {
+        return $this->hasOne('App\Verification');
+    }
+
 //    public function submitter_age() {
 //        return $this->tgl_lahir->diffInYears(Carbon::now());
 //    }

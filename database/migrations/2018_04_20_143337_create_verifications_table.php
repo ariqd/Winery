@@ -15,6 +15,7 @@ class CreateVerificationsTable extends Migration
     {
         Schema::create('verifications', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('submissions_id');
             $table->string('nama');
             $table->string('nama_di_kartu');
             $table->string('ktp');

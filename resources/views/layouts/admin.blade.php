@@ -13,7 +13,6 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.16/b-1.5.1/b-colvis-1.5.1/b-flash-1.5.1/b-html5-1.5.1/b-print-1.5.1/datatables.min.css"/>
-    <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
 
     <style media="screen">
         .nav-link {
@@ -60,7 +59,6 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.16/b-1.5.1/b-colvis-1.5.1/b-flash-1.5.1/b-html5-1.5.1/b-print-1.5.1/datatables.min.js"></script>
-<script src='https://cdn.datatables.net/select/1.2.0/js/dataTables.select.min.js'></script>
 <script>
     feather.replace();
     $(document).ready( function () {
@@ -68,7 +66,7 @@
             dom: 'Bfrtip',
             buttons : [{
                 extend : 'excel',
-                text : 'Export All',
+                text : 'Download to Excel',
                 title : 'Laporan Pengajuan Kredit Disetujui - Winery',
                 exportOptions : {
                     modifier : {
@@ -79,21 +77,7 @@
                         search : 'none', // 'none', 'applied', 'removed'
                     }
                 }
-            },
-                {
-                    extend: 'excelHtml5',
-                    text: 'Export Selected',
-                    exportOptions: {
-                        columns: ':visible:not(.not-exported)',
-                        modifier: {
-                            selected: true
-                        }
-                    },
-                    title: 'Laporan Pengajuan Kredit Disetujui Pilihan - Winery'
-                }],
-            select: {
-                style: 'multi'
-            }
+            }]
         });
         $('#myTable2').dataTable({
             dom: 'Bfrtip',

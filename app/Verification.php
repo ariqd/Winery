@@ -7,9 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Verification extends Model
 {
     protected $fillable = [
+        "submission_id",
         "nama",
         "nama_di_kartu",
         "ktp",
+        "tgl_lahir",
+        "tempat_lahir",
         "kewarganegaraan",
         "pendidikan",
         "status_tinggal",
@@ -49,4 +52,9 @@ class Verification extends Model
         "norek_loan",
         "cabang_loan",
     ];
+
+    public function submission()
+    {
+        return $this->belongsTo('App\Submission');
+    }
 }

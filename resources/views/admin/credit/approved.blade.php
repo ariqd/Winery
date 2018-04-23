@@ -21,6 +21,7 @@
                     <th>Pekerjaan</th>
                     <th>Penghasilan</th>
                     <th>Pernah Dimiliki</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -36,6 +37,9 @@
                         <td>{{ $submission->pekerjaan }}</td>
                         <td>{{ $submission->penghasilan }}</td>
                         <td>{{ $submission->owned }}</td>
+                        <td>
+                            <a href="{{ route('approved.export', $submission->id) }}" class="btn btn-secondary"><i class="fa fa-arrow-down"></i> Download</a>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

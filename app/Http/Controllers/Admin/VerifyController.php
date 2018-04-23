@@ -18,6 +18,9 @@ class VerifyController extends Controller
 
     public function verify(Request $request, $id)
     {
+//        $request['submission_id'] = $id;
+//        dd($request->all());
+
         Verification::create($request->all());
 
         $submission = Submission::findOrFail($id);
