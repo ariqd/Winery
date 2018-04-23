@@ -158,12 +158,12 @@ class CreditController extends Controller
 
     public function filter(Request $request)
     {
-        $cards = Card::where([
-            ['id_bank',     '=',    $request->bank],
-            ['id_category', 'LIKE', $request->category],
-            ['id_type',     'LIKE', $request->type],
-            ['id_holder',   'LIKE', $request->holder],
-        ])->orderBy('nama')->get();
+        $cards = Card::where('id_bank', '=', $request->bank)
+            ->orWhere([
+                ['id_category', 'LIKE', $request->category],
+                ['id_type',     'LIKE', $request->type],
+                ['id_holder',   'LIKE', $request->holder],
+            ])->orderBy('nama')->get();
 
         if(isset($request->bank)){
             $bank = Bank::find($request->bank);
