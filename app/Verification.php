@@ -8,6 +8,10 @@ class Verification extends Model
 {
     protected $fillable = [
         "submission_id",
+        "source_code",
+        "channel_aplikasi",
+        "coverage_area",
+        "kode_sales",
         "nama",
         "nama_di_kartu",
         "ktp",

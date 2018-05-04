@@ -10,6 +10,35 @@
     <form action="{{ route('admin.verifies', $submission->id) }}" method="post">
         {{ csrf_field() }}
         <input type="hidden" value="{{ $submission->id }}" name="submission_id">
+
+        <div class="form-group row">
+            <label for="source_code" class="col-lg-2">Source Code</label>
+            <div class="col-lg-8">
+                <input type="text" class="form-control" id="source_code" name="source_code" placeholder="Source Code">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="channel_aplikasi" class="col-lg-2">Channel Aplikasi</label>
+            <div class="col-lg-8">
+                <input type="text" class="form-control" id="channel_aplikasi" name="channel_aplikasi" placeholder="Channel Aplikasi">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="coverage_area" class="col-lg-2">Coverage Area</label>
+            <div class="col-lg-8">
+                <input type="text" class="form-control" id="coverage_area" name="coverage_area" placeholder="Coverage Area">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="kode_sales" class="col-lg-2">Kode Sales</label>
+            <div class="col-lg-8">
+                <input type="text" class="form-control" id="kode_sales" name="kode_sales" placeholder="Kode Sales">
+            </div>
+        </div>
+
         <div class="form-group row">
             <label for="nama" class="col-lg-2">Nama Lengkap (Sesuai KTP / Paspor)</label>
             <div class="col-lg-8">
