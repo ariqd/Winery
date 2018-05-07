@@ -4,14 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Bank;
 use App\Card;
+use App\Type;
+use App\Holder;
 use App\Category;
 use App\Document;
-use App\Holder;
 use App\Submission;
-use App\Type;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Exports\AplikasiExport;
+use App\Http\Controllers\Controller;
 
 class CreditCardsController extends Controller
 {
@@ -74,13 +74,13 @@ class CreditCardsController extends Controller
             // End insert gambar
         }
 
-        $card->nama = $request->nama;
-        $card->deskripsi = $request->deskripsi;
-        $card->harga = $request->harga;
-        $card->id_bank = $request->id_bank;
-        $card->id_category = $request->id_category;
-        $card->id_type = $request->id_type;
-        $card->id_holder = $request->id_holder;
+        $card->nama         = $request->nama;
+        $card->deskripsi    = $request->deskripsi;
+        $card->harga        = $request->harga;
+        $card->id_bank      = $request->id_bank;
+        $card->id_category  = $request->id_category;
+        $card->id_type      = $request->id_type;
+        $card->id_holder    = $request->id_holder;
 
         $card->save();
 
@@ -131,7 +131,6 @@ class CreditCardsController extends Controller
     public function requests()
     {
         $data['submissions'] = Submission::where('approved', false)->get();
-//        dd($data);
         return view('admin.credit.requests', $data);
     }
 
@@ -204,6 +203,6 @@ class CreditCardsController extends Controller
 
     public function downloadExcel($id)
     {
-        return (new AplikasiExport($id))->download('Aplikasi ID '.$id.'.xlsx');
+        return (new AplikasiExport($id))->download('Pengajuan - ID '.$id.'.xlsx');
     }
 }
