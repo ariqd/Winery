@@ -321,6 +321,25 @@
             </div>
         </div>
 
+        <div class="modal fade" tabindex="-1" role="dialog" id="status">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header bg-winery">
+                        <h5 class="modal-title">Pengajuan Kredit Berhasil</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="text-white">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Anda akan dihubungi oleh pihak Winery selambat-lambatnya 3x24 jam</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-winery-3" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 @endsection
 
@@ -349,12 +368,6 @@
                     {
                         breakpoint: 1024,
                         settings: "unslick"
-                        // settings: {
-                        //     slidesToShow: 3,
-                        //     slidesToScroll: 3,
-                        //     infinite: true,
-                        //     dots: true
-                        // }
                     },
                     {
                         breakpoint: 600,
@@ -364,9 +377,6 @@
                         breakpoint: 480,
                         settings: "unslick"
                     }
-                    // You can unslick at a given breakpoint now by adding:
-                    // settings: "unslick"
-                    // instead of a settings object
                 ]
             });
             $('.home-company-slick').slick({
@@ -378,4 +388,12 @@
             });
         });
     </script>
+
+    @if (session('status'))
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('#status').modal('show');
+            });
+        </script>
+    @endif
 @endsection

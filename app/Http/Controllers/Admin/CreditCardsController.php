@@ -8,9 +8,12 @@ use App\Type;
 use App\Holder;
 use App\Category;
 use App\Document;
+use Carbon\Carbon;
 use App\Submission;
 use Illuminate\Http\Request;
+use App\Exports\DatsysExport;
 use App\Exports\AplikasiExport;
+use App\Exports\SubmissionExport;
 use App\Http\Controllers\Controller;
 
 class CreditCardsController extends Controller
@@ -131,6 +134,17 @@ class CreditCardsController extends Controller
     public function requests()
     {
         $data['submissions'] = Submission::where('approved', false)->get();
+        $banks = Bank::select('id', 'nama')->get();
+
+        $data['banks'] = array();
+
+        foreach ($data['submissions'] as $submission) {
+            foreach ($banks as $bank) {
+                if ($submission->card->id_bank == $bank->id) {
+                    $data['banks'][$bank->id] = $bank->nama;
+                }
+            }
+        }
         return view('admin.credit.requests', $data);
     }
 
@@ -154,6 +168,29 @@ class CreditCardsController extends Controller
     public function approved()
     {
         $data['submissions'] = Submission::where('approved', true)->get();
+
+        $banks = Bank::select('id', 'nama')->get();
+
+        $data['banks'] = array();
+
+        foreach ($data['submissions'] as $submission) {
+            foreach ($banks as $bank) {
+                if ($submission->card->id_bank == $bank->id) {
+                    $data['banks'][$bank->id] = $bank->nama;
+                }
+            }
+        }
+
+        // $data['banks'] = Bank::whereHas('card', function ($q) {
+        //     $q->has('submissions');
+        // })->get();
+
+        // dd($data['banks']);
+
+        // $submissions = Submission::whereHas('card', function ($query) {
+        //     $query->where('id_bank', $this->post['bank_id']);
+        // })->where('approved', $this->post['approved'])->get();
+
         return view('admin.credit.approved', $data);
     }
 
@@ -201,8 +238,39 @@ class CreditCardsController extends Controller
         }
     }
 
+    /**
+     * Export individual approved submissions to excel
+     */
     public function downloadExcel($id)
     {
         return (new AplikasiExport($id))->download('Pengajuan - ID '.$id.'.xlsx');
+    }
+
+    /**
+     * Export all pending submissions to excel
+     */
+    public function exportPendingAll($approved)
+    {
+        if ($approved == 'approved') {
+            return (new SubmissionExport(true))->download('Semua Pengajuan Approved - '.Carbon::now().'.xlsx');
+        } else {
+            return (new SubmissionExport(false))->download('Semua Pengajuan Pending - '.Carbon::now().'.xlsx');
+        }
+    }
+
+    public function exportDatsys(Request $request)
+    {
+        $post = array();
+
+        $post['bank_id'] = $request->bank_id;
+        if ($request->status == 'pending') {
+            $post['approved'] = false;
+        } else {
+            $post['approved'] = true;
+        }
+
+        $bank = Bank::find($post['bank_id']);
+
+        return (new DatsysExport($post))->download('Datsys '.$bank->nama.' - '.$request->status.' - '.Carbon::now().'.xlsx');
     }
 }

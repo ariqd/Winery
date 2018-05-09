@@ -28,7 +28,7 @@ class AplikasiExport implements FromView
         $submission = Submission::findOrFail($this->id);
 //        dd($submission->verification);
 //        dd( Verification::firstOrFail('submissions_id', $this->id)->get());
-        return view('admin.credit.aplikasi', [
+        return view('admin.credit.excel.aplikasi', [
             'verification' => $submission->verification
         ]);
     }

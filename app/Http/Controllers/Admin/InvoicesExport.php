@@ -8,7 +8,6 @@ use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Concerns\FromView;
 use Illuminate\Contracts\View\View;
 
-
 class InvoicesExport implements FromView
 {
     /**
@@ -16,7 +15,7 @@ class InvoicesExport implements FromView
      */
     public function view($id): View
     {
-        return view('admin.credit.aplikasi', [
+        return view('admin.credit.excel.aplikasi', [
             'invoices' => Verification::find($id)
         ]);
     }

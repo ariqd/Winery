@@ -75,13 +75,20 @@ class CreditController extends Controller
         $submission->tgl_lahir = new Carbon($date);
         $submission->penghasilan = $request->penghasilan;
         $submission->pekerjaan = $request->pekerjaan;
-        $submission->owned = implode(',', $request->bank);
+
+        if (!empty($request->bank)) {
+            $submission->owned = implode(',', $request->bank);
+        } else {
+            $submission->owned = 'tidak ada';
+        }
+
         $submission->id_card = $id;
 
-        $submission->save();
-
-        return redirect('/');
-
+        if ($submission->save()) {
+            return redirect('/')->with('status', 'Pengajuan kredit berhasil');
+        } else {
+            return back()->withInput();
+        }
     }
 
     /**

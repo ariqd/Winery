@@ -10,6 +10,6 @@ class Bank extends Model
 
     public function card()
     {
-        return $this->hasMany(Card::class);
+        return $this->hasMany(Card::class, 'id_bank');
     }
 }

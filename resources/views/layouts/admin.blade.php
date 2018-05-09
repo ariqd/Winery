@@ -62,41 +62,8 @@
 <script>
     feather.replace();
     $(document).ready( function () {
-        $('#myTable').dataTable({
-            dom: 'Bfrtip',
-            buttons : [{
-                extend : 'excel',
-                text : 'Download to Excel',
-                title : 'Laporan Pengajuan Kredit Disetujui - Winery',
-                exportOptions : {
-                    modifier : {
-                        // DataTables core
-                        order : 'index', // 'current', 'applied',
-                        //'index', 'original'
-                        page : 'all', // 'all', 'current'
-                        search : 'none', // 'none', 'applied', 'removed'
-                    }
-                }
-            }]
-        });
-        $('#myTable2').dataTable({
-            dom: 'Bfrtip',
-            buttons : [{
-                extend : 'excel',
-                text : 'Download to Excel',
-                title : 'Laporan Permintaan Pengajuan Kredit - Winery',
-                exportOptions : {
-                    modifier : {
-                        // DataTables core
-                        order : 'index', // 'current', 'applied',
-                        //'index', 'original'
-                        page : 'all', // 'all', 'current'
-                        search : 'none', // 'none', 'applied', 'removed'
-                    },
-                    columns: [ 0, 1, 2 ]
-                }
-            }]
-        });
+        $('#myTable').dataTable();
+        $('#myTable2').dataTable();
     } );
 </script>
 @yield("js")

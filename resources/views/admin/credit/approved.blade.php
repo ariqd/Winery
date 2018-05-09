@@ -8,6 +8,8 @@
     </div>
     <div class="row">
         <div class="col-lg-12">
+            <a href="{{ url('admin/submissions/export/approved') }}" class="btn btn-secondary mb-3">Export All to Excel</a>
+            <button type="button" data-toggle="modal" data-target="#datsys" class="btn btn-secondary mb-3">Download Datsys</button>
             <table class="table table-responsive" id="myTable">
                 <thead>
                 <tr>
@@ -44,6 +46,36 @@
                 @endforeach
                 </tbody>
             </table>
+        </div>
+    </div>
+    <div class="modal fade" id="datsys" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Download Datsys</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ url('admin/submissions/export_datsys') }}" method="post">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="status" value="approved">
+                        <div class="form-group">
+                            <label for="datsysBank">Pilih Bank</label>
+                            <select class="form-control" id="datsysBank" name="bank_id">
+                                @foreach($banks as $bank_id => $bank_name)
+                                    <option value="{{ $bank_id }}">{{ $bank_name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-primary">Download Datsys untuk Bank ini</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

@@ -31,11 +31,17 @@ Route::get('/logout', 'AuthController@logout');
 Route::post('/login/try', 'AuthController@login_attempt');
 
 Route::group(['middleware' => 'admin'], function () {
+
     Route::get('/admin/requests', 'Admin\CreditCardsController@requests');
     Route::get('/admin/requests/approve/{id}', 'Admin\CreditCardsController@approve');
     Route::get('/admin/requests/decline/{id}', 'Admin\CreditCardsController@decline');
+
+
     Route::get('/admin/approved', 'Admin\CreditCardsController@approved');
     Route::get('/admin/approved/excel/{id}', 'Admin\CreditCardsController@downloadExcel')->name('approved.export');
+
+    Route::get('/admin/submissions/export/{approved}', 'Admin\CreditCardsController@exportPendingAll');
+    Route::post('/admin/submissions/export_datsys', 'Admin\CreditCardsController@exportDatsys');
 
     // Credit Card Routes
     //
